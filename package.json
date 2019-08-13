@@ -84,7 +84,7 @@
     ]
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^5.1.3",
+    "@storybook/addon-actions": "^5.1.11",
     "@storybook/addon-links": "^5.1.3",
     "@storybook/react-native": "^5.1.3",
     "acorn": "^6.1.1",
