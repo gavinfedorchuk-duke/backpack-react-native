@@ -106,6 +106,7 @@ const getStyleByTextStyle = textStyle => {
 
   return {
     color: textPrimaryColor,
+    textAlign: 'left',
     letterSpacing,
     fontFamily,
     fontSize,
