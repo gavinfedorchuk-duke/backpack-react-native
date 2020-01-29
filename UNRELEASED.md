@@ -2,9 +2,10 @@
 
 > Place your changes below this line.
 
-**Fixed:**
- - react-native-bpk-appearance:
-   - We've changed the underlying library used to enable dark-mode support.
+**Breaking:**
+
+- react-native-bpk-appearance:
+  - We've changed the underlying library used to enable dark-mode support.
 
 ## How to write a good changelog entry
 
