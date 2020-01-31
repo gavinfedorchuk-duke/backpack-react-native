@@ -24,6 +24,7 @@ import React, {
   type Context,
   type Node,
 } from 'react';
+import { AppearanceProvider, Appearance } from 'react-native-appearance';
 
 import BpkAppearance, { type BpkAppearancePreferences } from './BpkAppearance';
 
@@ -43,6 +44,10 @@ const BpkAppearanceProvider = ({ children, appearanceOverride }: Props) => {
   );
 
   useEffect(() => {
+    // This is needed if the initial color scheme is different to the the current color scheme.
+    // This can happen on iOS if a user switches interface style after launch, but before entering an RN screen.
+    setCurrentAppearance(Appearance.getColorScheme());
+
     function handler(newAppearance: BpkAppearancePreferences) {
       setCurrentAppearance(newAppearance);
     }
@@ -57,7 +62,7 @@ const BpkAppearanceProvider = ({ children, appearanceOverride }: Props) => {
     <BpkAppearanceProviderContext.Provider
       value={{ ...currentAppearance, ...appearanceOverride }}
     >
-      {children}
+      <AppearanceProvider>{children}</AppearanceProvider>
     </BpkAppearanceProviderContext.Provider>
   );
 };

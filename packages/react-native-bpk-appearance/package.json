@@ -16,7 +16,7 @@
   "dependencies": {
     "bpk-tokens": "^30.1.0",
     "prop-types": "^15.5.8",
-    "react-native-appearance": "github:tiagoengel/react-native-appearance"
+    "react-native-appearance": "github:Skyscanner/react-native-appearance"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
