@@ -23,6 +23,7 @@
 #import "RCTBPKCalendar.h"
 #import "RCTBPKCalendarDateUtils.h"
 #import "RCTConvert+RCTBPKCalendar.h"
+#import "RCTBPKColorBucket.h"
 
 @interface RCTBPKCalendarManager () <BPKCalendarDelegate>
 
@@ -41,6 +42,7 @@ RCT_EXPORT_MODULE()
 
 RCT_REMAP_VIEW_PROPERTY(minDate, rct_minDate, NSDate)
 RCT_REMAP_VIEW_PROPERTY(maxDate, rct_maxDate, NSDate)
+RCT_REMAP_VIEW_PROPERTY(colorBuckets, rct_colorBuckets, NSArray<RCTBPKColorBucket *> *)
 RCT_EXPORT_VIEW_PROPERTY(selectionType, BPKCalendarSelection)
 RCT_EXPORT_VIEW_PROPERTY(locale, NSLocale)
 RCT_REMAP_VIEW_PROPERTY(selectedDates, rct_selectedDates, NSArray<NSDate *> *)

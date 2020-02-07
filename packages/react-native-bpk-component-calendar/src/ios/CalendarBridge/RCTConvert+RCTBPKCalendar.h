@@ -20,9 +20,11 @@
 #import <CoreLocation/CoreLocation.h>
 #import <React/RCTConvert.h>
 
+@class RCTBPKColorBucket;
 @interface RCTConvert (RCTBPKCalendar)
 
 + (BPKCalendarSelection)BPKCalendarSelection:(id)json;
 + (NSArray<NSDate *> *)NSDateArray:(id)json;
++ (NSArray<RCTBPKColorBucket *> *)RCTBPKColorBucketArray:(id)json;
 
 @end

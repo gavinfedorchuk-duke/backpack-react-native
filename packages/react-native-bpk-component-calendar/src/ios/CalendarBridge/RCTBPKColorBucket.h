@@ -16,18 +16,10 @@
  * limitations under the License.
  */
 
-#import <Backpack/Calendar.h>
 #import <Backpack/SimpleDate.h>
-#import <React/RCTViewManager.h>
 
-@class RCTBPKColorBucket;
-@interface RCTBPKCalendar : BPKCalendar
+@interface RCTBPKColorBucket : NSObject
 
-@property(nonatomic, copy) RCTBubblingEventBlock onDateSelection;
-@property(nonatomic, strong, readonly) NSCalendar *utcCalendar;
-
-@property(nonatomic, nullable) NSDate *rct_minDate;
-@property(nonatomic, nullable) NSDate *rct_maxDate;
-@property(nonatomic, nonnull) NSArray<NSDate *> *rct_selectedDates;
-@property(nonatomic, nonnull) NSArray<RCTBPKColorBucket *> *rct_colorBuckets;
+@property(nonatomic, nullable) UIColor *color;
+@property(nonatomic, nonnull) NSArray<NSDate *> *dates;
 @end

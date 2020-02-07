@@ -19,6 +19,8 @@
 #import "RCTConvert+RCTBPKCalendar.h"
 #import <React/RCTConvert+CoreLocation.h>
 
+#import "RCTBPKColorBucket.h"
+
 @implementation RCTConvert (RCTBPKCalendar)
 
 RCT_ENUM_CONVERTER(BPKCalendarSelection, (@{
@@ -28,5 +30,8 @@ RCT_ENUM_CONVERTER(BPKCalendarSelection, (@{
                    }),
                    BPKCalendarSelectionSingle, integerValue)
 RCT_ARRAY_CONVERTER(NSDate)
+
+// TODO define a custom converter from JSON to type `RCTBPKColorBucket`
+RCT_ARRAY_CONVERTER(RCTBPKColorBucket)
 
 @end
