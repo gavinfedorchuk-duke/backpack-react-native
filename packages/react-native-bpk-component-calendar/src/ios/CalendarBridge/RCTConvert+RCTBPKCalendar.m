@@ -30,8 +30,12 @@ RCT_ENUM_CONVERTER(BPKCalendarSelection, (@{
                    }),
                    BPKCalendarSelectionSingle, integerValue)
 RCT_ARRAY_CONVERTER(NSDate)
-
-// TODO define a custom converter from JSON to type `RCTBPKColorBucket`
 RCT_ARRAY_CONVERTER(RCTBPKColorBucket)
+
++ (RCTBPKColorBucket *)RCTBPKColorBucket:(id)json {
+    // TODO define a custom converter from JSON to type `RCTBPKColorBucket`
+    return [[RCTBPKColorBucket alloc] init];
+}
+
 
 @end

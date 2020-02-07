@@ -25,6 +25,7 @@
 
 + (BPKCalendarSelection)BPKCalendarSelection:(id)json;
 + (NSArray<NSDate *> *)NSDateArray:(id)json;
++ (RCTBPKColorBucket *)RCTBPKColorBucket:(id)json;
 + (NSArray<RCTBPKColorBucket *> *)RCTBPKColorBucketArray:(id)json;
 
 @end

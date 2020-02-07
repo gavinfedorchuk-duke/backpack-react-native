@@ -26,7 +26,7 @@
 #import "RCTBPKColorBucket.h"
 
 @interface RCTBPKCalendarManager () <BPKCalendarDelegate>
-
+@property(nonatomic, strong) NSArray<RCTBPKColorBucket *> *colorBuckets;
 @end
 
 @implementation RCTBPKCalendarManager
@@ -42,12 +42,15 @@ RCT_EXPORT_MODULE()
 
 RCT_REMAP_VIEW_PROPERTY(minDate, rct_minDate, NSDate)
 RCT_REMAP_VIEW_PROPERTY(maxDate, rct_maxDate, NSDate)
-RCT_REMAP_VIEW_PROPERTY(colorBuckets, rct_colorBuckets, NSArray<RCTBPKColorBucket *> *)
+//RCT_REMAP_VIEW_PROPERTY(colorBuckets, rct_colorBuckets, NSArray<RCTBPKColorBucket *> *)
 RCT_EXPORT_VIEW_PROPERTY(selectionType, BPKCalendarSelection)
 RCT_EXPORT_VIEW_PROPERTY(locale, NSLocale)
 RCT_REMAP_VIEW_PROPERTY(selectedDates, rct_selectedDates, NSArray<NSDate *> *)
 
 RCT_EXPORT_VIEW_PROPERTY(onDateSelection, RCTBubblingEventBlock)
+RCT_CUSTOM_VIEW_PROPERTY(colorBuckets, RCTBPKColorBucketArray, RCTBPKCalendar) {
+    self.colorBuckets = [RCTConvert RCTBPKColorBucketArray:json];
+}
 
 /*
  * When the calendar renders in certain configurations the initial
@@ -105,6 +108,18 @@ RCT_EXPORT_METHOD(forceRender : (nonnull NSNumber *)reactTag) {
     }
 
     calendar.onDateSelection(@{@"selectedDates": dateArray});
+}
+
+// TODO Use the values in `self.colorBuckets` to determine colour to return
+- (UIColor *)fillColorForDate:(NSDate *)date {
+    if(self.colorBuckets.count > 0) {
+        return self.colorBuckets[0].color;
+    }
+    return UIColor.redColor;
+}
+
+- (UIColor *)titleColorForDate:(NSDate *)date {
+    return UIColor.whiteColor;
 }
 
 @end

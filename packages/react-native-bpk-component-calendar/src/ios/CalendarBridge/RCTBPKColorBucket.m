@@ -1,7 +1,7 @@
 /*
  * Backpack - Skyscanner's Design System
  *
- * Copyright 2016-2020 Skyscanner Ltd
+ * Copyright 2018-2020 Skyscanner Ltd
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,16 +16,26 @@
  * limitations under the License.
  */
 
-#import <Backpack/SimpleDate.h>
+#import "RCTBPKColorBucket.h"
 
 NS_ASSUME_NONNULL_BEGIN
+@implementation RCTBPKColorBucket
 
-@interface RCTBPKColorBucket : NSObject
+//- (instancetype)initWithHighRatingText:(NSString *)highRatingText
+//                      mediumRatingText:(NSString *)mediumRatingText
+//                         lowRatingText:(NSString *)lowRatingText {
 
-//TODO Make the nonnull
-@property(nonatomic, nullable) UIColor *color;
-@property(nonatomic, nullable) NSArray<NSDate *> *dates;
+- (instancetype)init {
+    self = [super init];
+
+    if (self) {
+        self.color = UIColor.orangeColor;
+//        self.mediumRatingText = mediumRatingText;
+//        self.lowRatingText = lowRatingText;
+    }
+
+    return self;
+}
 
 @end
-
 NS_ASSUME_NONNULL_END

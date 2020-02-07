@@ -19,7 +19,6 @@
 #import "RCTBPKCalendar.h"
 
 #import "RCTBPKCalendarDateUtils.h"
-#import "RCTBPKColorBucket.h"
 
 NS_ASSUME_NONNULL_BEGIN
 @interface RCTBPKCalendar ()
@@ -127,10 +126,6 @@ NS_ASSUME_NONNULL_BEGIN
 
     [super setSelectedDates:simpleDates];
 }
-
-// TODO This class is a subclass of BPKCalendar.
-// TODO We should use BPKCalendarDelegate to pass the
-// colours defined in self.rct_colorBuckets along to the BPKCalendar
 
 @end
 NS_ASSUME_NONNULL_END

@@ -20,7 +20,6 @@
 #import <Backpack/SimpleDate.h>
 #import <React/RCTViewManager.h>
 
-@class RCTBPKColorBucket;
 @interface RCTBPKCalendar : BPKCalendar
 
 @property(nonatomic, copy) RCTBubblingEventBlock onDateSelection;
@@ -29,5 +28,4 @@
 @property(nonatomic, nullable) NSDate *rct_minDate;
 @property(nonatomic, nullable) NSDate *rct_maxDate;
 @property(nonatomic, nonnull) NSArray<NSDate *> *rct_selectedDates;
-@property(nonatomic, nonnull) NSArray<RCTBPKColorBucket *> *rct_colorBuckets;
 @end
