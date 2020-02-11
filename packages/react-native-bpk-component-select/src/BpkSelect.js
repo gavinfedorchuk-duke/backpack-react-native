@@ -34,6 +34,7 @@ import {
   spacingSm,
   lineDarkColor,
   backgroundSecondaryColor,
+  primaryColor,
 } from 'bpk-tokens/tokens/base.react.native';
 import {
   BpkDynamicStyleSheet,
@@ -50,6 +51,9 @@ const dynamicStyles = BpkDynamicStyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingVertical: spacingSm,
+  },
+  open: {
+    borderColor: primaryColor,
   },
   invalid: {
     borderColor: colorPanjin,
@@ -84,6 +88,7 @@ export type Props = {
   style: ?any,
   valid: ?boolean,
   validationMessage: ?string,
+  isOpen: ?boolean,
   // Image
   image: ?Element<typeof Image>,
   showImage: boolean,
@@ -99,12 +104,17 @@ const BpkSelect = (props: Props) => {
     validationMessage,
     image,
     showImage,
+    isOpen,
     ...rest
   } = props;
 
   const styles = useBpkDynamicStyleSheet(dynamicStyles);
   let content = null;
   const selectStyle = [styles.select];
+  const openStyle = [{
+    ...styles.select,
+    ...styles.open,
+  }];
   const selectDisabledStyle = [styles.selectContentDisabled];
   const selectImageStyle = [styles.selectImage];
 
@@ -162,7 +172,7 @@ const BpkSelect = (props: Props) => {
       accessibilityStates={accessibilityStates}
       {...platformProps}
     >
-      <View style={selectStyle} {...rest}>
+      <View style={(isOpen ? openStyle : selectStyle)} {...rest}>
         {showImage && styledImage}
         {content || label}
         {validityIcon}
@@ -189,6 +199,7 @@ BpkSelect.propTypes = {
   style: ViewPropTypes.style,
   valid: PropTypes.oneOf([true, false, null]),
   validationMessage: PropTypes.string,
+  isOpen: PropTypes.bool,
 
   // Image
   image: PropTypes.element,
@@ -201,6 +212,7 @@ BpkSelect.defaultProps = {
   style: null,
   valid: null,
   validationMessage: null,
+  isOpen: false,
 
   // Image
   image: null,
